@@ -94,6 +94,6 @@ public class RandomTwin2 {
             }
             map[i]= tmpInt.clone();
         }
-        main.check(map);
+        RandomTwin2.check(map);
     }
 }
