@@ -1,3 +1,5 @@
+package Mathmatics;
+
 import java.io.*;
 
 public class bk11021_ano {

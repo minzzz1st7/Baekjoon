@@ -1,3 +1,5 @@
+package GraphTraversal;
+
 import java.util.Scanner;
 
 public class RandomTwin2 {
@@ -80,7 +82,7 @@ public class RandomTwin2 {
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        RandomTwin2 = new RandomTwin2();
+        RandomTwin2 RandomTwin2 = new RandomTwin2();
         int j=0,n = 19;
         String[] tmp;
         int[] tmpInt = new int[n];

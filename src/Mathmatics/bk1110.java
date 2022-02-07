@@ -1,4 +1,4 @@
-/*모르겠당...*/
+package Mathmatics;/*모르겠당...*/
 
 import java.util.*;
 

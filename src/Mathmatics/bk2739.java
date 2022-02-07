@@ -1,3 +1,5 @@
+package Mathmatics;
+
 import java.util.Scanner;
 
 public class bk2739 {
