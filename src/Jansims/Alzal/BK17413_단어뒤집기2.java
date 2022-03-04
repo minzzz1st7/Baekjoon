@@ -1,4 +1,4 @@
-package Jansims;
+package Jansims.Alzal;
 
 import java.io.BufferedReader;
 import java.io.IOException;
