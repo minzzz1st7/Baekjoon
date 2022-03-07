@@ -5,7 +5,7 @@ public class Degree_01 {
 
     public static void main(String[] args) {
         int px1 = 0, py1 = 0;
-        int px2 = 2, py2 = -2;
+        int px2 = 3, py2 = 2;
 
         float dx = px1 - px2;
         float dy = py1 - py2;
