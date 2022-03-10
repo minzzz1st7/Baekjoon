@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-    public class Main {
+    public class BK1764_듣보잡 {
         public static void main(String[] args) throws IOException {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String[] inputs = br.readLine().split(" ");
