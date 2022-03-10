@@ -10,6 +10,7 @@ N과 일치하는 해당값을 구하꼬 했다.
 
 못 푼 이유는 각 자리수를 구하지 못해서
 
+
 * */
 
 public class BK2231_분해합 {
@@ -26,6 +27,7 @@ public class BK2231_분해합 {
 
             int sum = 0;
             int num = i;
+
             while(num != 0){
                 sum += num % 10;
                 num = num/10;
