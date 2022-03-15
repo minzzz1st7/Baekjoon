@@ -30,8 +30,7 @@ public class BK1018_체스판다시칠하기2 {
             {'B','W','B','W','B','W','B','W'},
     };
 
-    static int b_min = 0;
-    static int w_min = 0;
+
 
     public static void main(String[] args) throws IOException {
      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,6 +38,7 @@ public class BK1018_체스판다시칠하기2 {
      StringTokenizer st = new StringTokenizer(br.readLine(), " ");
      int N = Integer.parseInt(st.nextToken());
      int M = Integer.parseInt(st.nextToken());
+
 
      char arr[][] = new char[N][M];
      for (int i = 0; i < N; i++) {
@@ -50,8 +50,34 @@ public class BK1018_체스판다시칠하기2 {
 
 
 
+        int min = Integer.MAX_VALUE;
+        int totalmin = Integer.MAX_VALUE;
+
+        for(int x = 0 ; x < N-8; x++){
+            for(int y = 0; y < M-8; y++){
+
+                int b_min = 0;
+                int w_min = 0;
+
+                for(int a = 0; a < 8; a++){
+                    for(int b = 0; b < 8; b++){
+                        System.out.println("arr의 좌표  "+ (x+a)+ "  "+(y+b));
+                        if(b_chess[a][b] != arr[x+a][y+b]) b_min++;
+                        if( w_chess[a][b] != arr[x+a][y+b]) w_min++;
 
 
+
+                    }
+                }
+
+
+                //min = Math.min(b_min, w_min);
+
+            }
+            totalmin = totalmin > min ? min : totalmin;
+
+        }
+        //System.out.println(totalmin);
 
         br.close();
     }
