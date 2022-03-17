@@ -3,8 +3,6 @@ package Jansims;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.PriorityQueue;
 
 // 처음에 Arrays.sort로 풀었다가 시간초과
@@ -20,22 +18,18 @@ public class BK2751_수정렬하기2 {
      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
      StringBuilder sb = new StringBuilder();
 
-
      int N = Integer.parseInt(br.readLine());
-
      PriorityQueue<Integer> heap = new PriorityQueue<Integer>();
 
      for (int n = 0; n < N; n++){
          heap.add(Integer.parseInt(br.readLine()));
-     }
+
 
 
      for(int i = 0; i < N; i++){
         sb.append(heap.poll()).append("\n");
      }
      System.out.println(sb);
-
-
 
      br.close();
     }
