@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 // x_length * 2랑 x_length * x_length 는 다르다.
 // 편의점 가는 것마다 20병 채워오는 게 아닌 버리고 오는 병 만큼 채워주는 거라고 생각해야 한다.
+// 그냥 병의 개수를 다시 20으로 맞춰주면 된다.
 
 public class BK9205_맥주마시면서걸어가기 {
     public static void main(String[] args) throws IOException {
@@ -27,8 +28,8 @@ public class BK9205_맥주마시면서걸어가기 {
 
 
             double length = 0;
-            int bottle = 20;
 
+            int bottle = 20;
             for(int a= 0; a < n+1; a++) {
                 double x_length = arr[a + 1][0] - arr[a][0];
                 double y_length = arr[a + 1][1] - arr[a][1];
@@ -38,16 +39,19 @@ public class BK9205_맥주마시면서걸어가기 {
 
                 bottle -= length/50;
 
-                if(length >= 1000){
-                 //   System.out.println("sad");
+                if(bottle < 0){
+                    System.out.println("sad");
                     break;
                 }
 
+                 bottle = 20;
+
             }
-           // System.out.println("happy");
+            if(bottle >= 0) {
+                System.out.println("happy");
+            }
 
         }
-
 
      br.close();
     }
