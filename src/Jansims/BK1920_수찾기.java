@@ -47,6 +47,6 @@ public class BK1920_수찾기 {
         bw.flush();
         bw.close();
         br.close();
-    }
+    } //main
 
 }
