@@ -37,12 +37,7 @@ public class BK1920_수찾기 {
                 if (!possible){
                     bw.write(String.valueOf(0)+ "\n");
                 }
-
-
-
         }
-
-
 
         bw.flush();
         bw.close();

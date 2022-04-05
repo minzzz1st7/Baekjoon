@@ -1,45 +1,55 @@
 package Jansims;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class BK11723_집합 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int M = Integer.parseInt(br.readLine());
-
-        int s = 0;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < M; i++) {
-            String[] input = br.readLine().split(" ");
+        int m = sc.nextInt();  // 연산 수
+        Set<Integer> set = new HashSet<>(); // 중복 허용 X
 
-            switch (input[0]) {
-                case "all":
-                    s = (1 << 21) - 1;
+        for (int i = 0; i < m; i++) {
+            String cal = sc.next();
+            int x = 0;
+
+            switch (cal) {
+                case "add" :
+                    x = sc.nextInt();
+                    set.add(x);
                     break;
-                case "empty":
-                    s = 0;
+                case "remove" :
+                    x = sc.nextInt();
+                    set.remove(x);
                     break;
-                default:
-                    int x = Integer.parseInt(input[1]);
-                    switch (input[0]) {
-                        case "add":
-                            s |= (1 << x);
-                            break;
-                        case "remove":
-                            s &= ~(1 << x);
-                            break;
-                        case "check":
-                            sb.append((s & (1 << x)) != 0 ? 1 : 0).append('\n');
-                            break;
-                        case "toggle":
-                            s ^= (1 << x);
-                            break;
+                case "check" :
+                    x = sc.nextInt();
+                    if (set.contains(x))
+                        sb.append("1\n");
+                    else
+                        sb.append("0\n");
+                    break;
+                case "toggle" :
+                    x = sc.nextInt();
+                    if (set.contains(x))
+                        set.remove(x);
+                    else
+                        set.add(x);
+                    break;
+                case "all" :
+                    for (int k = 0; k < 20; k++) {
+                        set.add(k + 1);
                     }
+                    break;
+                case "empty" :
+                    set.clear();
+                    break;
             }
         }
 
-        System.out.println(sb);
+        System.out.print(sb.toString());
+        sc.close();
     }
 }

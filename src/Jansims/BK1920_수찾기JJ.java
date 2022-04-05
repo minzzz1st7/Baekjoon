@@ -36,13 +36,7 @@ public class BK1920_수찾기JJ {
                 bw.write(String.valueOf(0)+"\n");
             }
 
-
-
-
         }
-
-
-
 
         bw.flush();
         bw.close();
@@ -67,6 +61,5 @@ public class BK1920_수찾기JJ {
     }
         return false;
     }
-
 
 }
