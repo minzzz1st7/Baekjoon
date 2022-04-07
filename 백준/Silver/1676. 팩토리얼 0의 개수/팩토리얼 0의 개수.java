@@ -9,26 +9,27 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         BigInteger factorial = BigInteger.valueOf(1);
 
-        if( N == 0 ) {
-            factorial = BigInteger.valueOf(0);
-        }
+
         for(int i = 1; i <= N ; i++){
-           factorial=  factorial.multiply(BigInteger.valueOf(i));
+            factorial=  factorial.multiply(BigInteger.valueOf(i));
         }
 
 //        System.out.println(factorial);
         String s = factorial.toString();
         String sp[] = s.split("");
         int cnt = 0;
+        if( N == 0 ) {
 
-        for(int j = sp.length-1; j > 0 ; j--){
+        }
+        else{
+        for(int j = sp.length-1; j >= 0 ; j--){
             if(sp[j].equals("0")) {
                 cnt++;
             }
             else {
                 break;
             }
-        }
+        }}
         System.out.println(cnt);
     }
 }
