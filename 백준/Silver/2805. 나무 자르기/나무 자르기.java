@@ -1,42 +1,61 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
-public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int N = sc.nextInt();
-		int M = sc.nextInt();
-		
-		ArrayList<Integer> listTree = new ArrayList<Integer>();
-		for(int i = 0; i<N; i++) {
-			int treeHeight = sc.nextInt();
-			listTree.add(treeHeight);
-		}
-		listTree.sort(null);
-		
-		long first = 0;
-		long last = 2000000000;
-		long midHeight=0;
-		while(first<=last) {
-			
-			midHeight = (first+last)/2;
-			
-			long sumTree = 0;
-			for(int i = 0; i<N; i++) {
-				long cut = listTree.get(i) - midHeight;
-				if(cut<=0) continue;
-				sumTree += cut; 
-				
-			}
-			
-			if(sumTree>=M) {		//M보다 더 많이 잘랐으면 
-				//더 최소한으로 자를 수 있나 즉, 기준 높이 더 높일 수 있 계속 검사 진행 
-				first = midHeight+1;
-			}
-			else last = midHeight -1;	//원하는 M 만큼 못 잘랐으면 
-			
-		}
-		
-		System.out.print(last);
-	}
+public class Main{
+        public static void main(String[] args) throws IOException {
+
+            //나무 m미터
+            //절단기 높이 : h
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+            StringTokenizer st = new StringTokenizer(reader.readLine());
+
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
+
+            int[] tree = new int[n];
+
+            int start = 0;
+            int end = 0;
+
+            st = new StringTokenizer(reader.readLine());
+            for (int i=0; i<tree.length; i++) {
+                tree[i] = Integer.parseInt(st.nextToken());
+                end = Math.max(end, tree[i]);
+            }
+
+            Arrays.sort(tree);
+
+            //mid : 절단기 높이
+
+            int result = 0;
+
+            while (start <= end) {
+
+                long total = 0;
+                int mid = (start+end)/2;
+              
+                for (int i=0; i<n; i++) {
+                    if (tree[i] > mid) {
+                        total += tree[i] - mid;
+                    }
+                }
+
+
+                if (total < m) {
+                    end = mid-1;
+                } else {
+                    start = mid + 1;
+                    result = mid;
+           
+                }
+            }
+
+            System.out.println(result);
+
+
+    }
 }
