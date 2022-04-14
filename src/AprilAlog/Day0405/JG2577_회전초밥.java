@@ -1,5 +1,10 @@
 package AprilAlog.Day0405;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
 public class JG2577_회전초밥 {
     static int N, D, K, C, size = 0;
     static final int MOD = 100003, KEY = 5381;
