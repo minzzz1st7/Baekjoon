@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// https://maejing.tistory.com/entry/%EB%B0%B1%EC%A4%80-1937-JAVA-%EC%9A%95%EC%8B%AC%EC%9F%81%EC%9D%B4%ED%8C%90%EB%8B%A4
+// https://intrepidgeeks.com/tutorial/bai-jun-1937-greedy-panda-java
 
-public class BK1937_욕심쟁이판다 {
+public class BK1937_JJ욕심쟁이판다 {
     static int n, cnt, nx, ny, max;
     static int[][] map;
     static int[] dx = {-1, 1, 0, 0};
@@ -34,7 +34,7 @@ public class BK1937_욕심쟁이판다 {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                System.out.println("탐색 끝나고 다시 반복문 들어왔니!!!");
+                System.out.println("=======  탐색 끝나고 다시 메인 반복문 들어왔음   =======");
                 cnt = 0;
                 dfs(1, i, j);
                 dp[i][j] = max;
@@ -49,7 +49,12 @@ public class BK1937_욕심쟁이판다 {
         br.close();
     }
 
-    private static void dfs(int cnt, int x, int y) {
+    private static int dfs(int cnt, int x, int y) {
+
+
+        System.out.println("cnt, x, y 인 dfs 들어옴:   " + cnt +"    " + x +"    "+ y);
+
+
         for (int i = 0; i < 4; i++) {
 
             int nextX = x + dx[i];
@@ -61,16 +66,21 @@ public class BK1937_욕심쟁이판다 {
                 continue;
             }
 
-            if (map[nextX][nextY] > map[x][y]) {
-                System.out.println("조건 맞아서 들어옴!!! nextX: " + nextX + "  nextY: " + nextY);
+            if (map[nextX][nextY] > map[x][y])  {
 
                 System.out.println("cnt값 좀 알려ㅜ저!!!    " + cnt);
+
+
                 dfs(cnt+1, nextX, nextY);
+
+                System.out.println("max값 알려줘!!!!!!      " + max);
 
             }
         }
 
-
-        System.out.println("============ max 출력===========   "+ max);
+        max = max <  cnt ? cnt : max ;
+        dp[x][y] = max;
+        System.out.println("dfs 종료함");
+        return max;
     }
 }
