@@ -50,14 +50,18 @@ public class BK1937_GG욕심쟁이판다 {
     }
 
     static int dfs(int x, int y) {
+        System.out.println(" x, y 인 dfs 들어옴:   "  + x +"    "+ y);
         for(int i = 0; i < 4; i++) {
             int nx = x + X[i];
             int ny = y + Y[i];
 
-            if(nx < 0 || ny < 0 || nx >= N || ny >= N || map[nx][ny] <= map[x][y])
+            if(nx < 0 || ny < 0 || nx >= N || ny >= N || map[nx][ny] <= map[x][y]){
+                System.out.println("조건 안 맞아서 넘어감");
                 continue;
+            }
 
             if(dp[nx][ny] == 0) {
+                System.out.println("다이나믹 제로    : " + nx +"  "+ ny);
                 int cnt = dfs(nx, ny);
                 dp[x][y] = Math.max(dp[x][y], cnt + 1);
 
@@ -68,6 +72,9 @@ public class BK1937_GG욕심쟁이판다 {
 
         if(dp[x][y] == 0)
             return 1;
+
+
+        System.out.println("dfs(x,y)종료   "+ x + "  " + y);
         return dp[x][y];
     }
 }

@@ -35,6 +35,7 @@ public class BK11650_좌표정렬하기 {
 
         });
 
+
         for(int i = 0 ; i < N; i++){
             sb.append(arr[i][0]).append(' ').append(arr[i][1]).append('\n');
         }

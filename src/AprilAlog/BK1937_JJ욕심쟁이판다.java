@@ -50,11 +50,7 @@ public class BK1937_JJ욕심쟁이판다 {
     }
 
     private static int dfs(int cnt, int x, int y) {
-
-
         System.out.println("cnt, x, y 인 dfs 들어옴:   " + cnt +"    " + x +"    "+ y);
-
-
         for (int i = 0; i < 4; i++) {
 
             int nextX = x + dx[i];
@@ -62,15 +58,12 @@ public class BK1937_JJ욕심쟁이판다 {
 
             if (nextX < 0 || nextY < 0 || nextX >=n || nextY >= n || map[nextX][nextY] < map[x][y]) {
                 System.out.println("조건 안 맞아서 넘어감!!!!");
-
                 continue;
             }
 
             if (map[nextX][nextY] > map[x][y])  {
 
                 System.out.println("cnt값 좀 알려ㅜ저!!!    " + cnt);
-
-
                 dfs(cnt+1, nextX, nextY);
 
                 System.out.println("max값 알려줘!!!!!!      " + max);
