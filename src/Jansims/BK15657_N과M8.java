@@ -53,6 +53,7 @@ public class BK15657_N과M8 {
         for (int i = start; i < arr.length; i++){
             System.out.println("재귀 들어옴 ");
             select[count] = arr[i];
+            System.out.println("arr[i]    "+arr[i]);
 
             dfs(i, count + 1);
         }
