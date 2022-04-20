@@ -5,19 +5,33 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class BK2579_계단오르기 {
-    public static void main (String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
 
-        int N = Integer.parseInt(br.readLine());
+        int[] stairs = new int[n + 1];
 
-        int step[] = new int[N+1];
-        step[0] = 0;
-        for(int n = 1; n < N+1; n++){
-            step[n] = Integer.parseInt(br.readLine());
+        for (int i = 1; i <= n; i++) {
+            stairs[i] = Integer.parseInt(br.readLine());
         }
 
-        // 0 10 20 15 25 10 20
+        int[] dp = new int[n + 1];
+        dp[1] = stairs[1];
 
+        for (int i = 2; i <= n; i++) {
+            if(i==2){
+                dp[2] = stairs[1] + stairs[2];
+            }else if(i==3){
+                dp[3] = Math.max(stairs[1], stairs[2]) + stairs[3];
+            }else{
+                dp[i] = Math.max(dp[i-3] + stairs[i-1], dp[i-2]) + stairs[i];
+                // i==4일 때, dp[1] + stairs[3] , dp[2] + stairs[4]
 
+            }
+
+            System.out.println(i + "  " +dp[i]);
+        }
+
+//        System.out.println(dp[n]);
     }
 }
