@@ -12,6 +12,7 @@ public class BK11655_ROT13 {
             String S = br.readLine();
             StringBuilder sbResult = new StringBuilder();
 
+
             for (int i = 0; i < S.length(); i++) {
 
                 char ch = S.charAt(i);
@@ -29,6 +30,8 @@ public class BK11655_ROT13 {
 
                 }
                 sbResult.append(ch);
+
+                
 
             }
 
