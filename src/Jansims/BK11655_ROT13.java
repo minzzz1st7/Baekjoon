@@ -13,6 +13,8 @@ public class BK11655_ROT13 {
             StringBuilder sbResult = new StringBuilder();
 
 
+
+
             for (int i = 0; i < S.length(); i++) {
 
                 char ch = S.charAt(i);
