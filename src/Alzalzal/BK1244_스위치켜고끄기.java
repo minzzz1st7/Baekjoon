@@ -48,9 +48,43 @@ public class BK1244_스위치켜고끄기 {
 
             // 여자라면
             else{
+                int cnt = 1;
+                int start = j[1] - cnt;
+                int end = j[1]+ cnt;
+
+                while( start > 0 && end < N + 1){
+
+                    for(int k = 1; k < N+1; k++){
+                        sb.append(str[k]).append(" ");
+                    }
+
+                    System.out.println(sb);
+
+
+                    start = j[1] - cnt;
+                    end = j[1]+ cnt;
+                    System.out.println("Start  " +start);
+                    System.out.println("end  " + end);
+                    str[j[1]] ^= 1;
+                    if(str[start] == str[end]){
+                        str[start] ^= 1;
+                        str[end] ^= 1;
+                        cnt ++;
+                    }
+                    else{
+                        str[j[1]] ^= 1;
+                        break;
+                    }
+
+
+                }
 
             }
+
+
         }
+
+
 
 
     }
