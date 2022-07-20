@@ -20,73 +20,58 @@ public class BK1244_스위치켜고끄기 {
             str[i] =  Integer.parseInt(st.nextToken());
         }
 
-        int Gender = Integer.parseInt(br.readLine());
-        int genderboard[][] = new int[Gender][2];
-
-
-        for(int i = 0; i < Gender; i++){
+        int stuCnt= Integer.parseInt(br.readLine());
+        for(int i = 0; i < stuCnt; i++){
             st = new StringTokenizer(br.readLine(), " ");
-            genderboard[i][0] = Integer.parseInt(st.nextToken());
-            genderboard[i][1] = Integer.parseInt(st.nextToken());
-        }
-        br.close();
+            int gender =  Integer.parseInt(st.nextToken());
+            int number = Integer.parseInt(st.nextToken());
 
-        for(int[] j : genderboard){
-            // 남자라면
-            if(j[0] == 1){
-                int time = N /j[1];
+
+            if(gender == 1){
+                int time = N/number;
+
                 for(int t = 1; t <= time; t++){
-                   if(str[j[1] * t] == 0) {
-                       str[j[1]*t] = 1;
-                   }
-                   else {
-                       str[j[1]*t] = 0;
-                   }
+                    str[number * t] ^= 1;
                 }
-
             }
 
             // 여자라면
             else{
                 int cnt = 1;
-                int start = j[1] - cnt;
-                int end = j[1]+ cnt;
 
-                while( start > 0 && end < N + 1){
+                str[number] ^= 1;
+                while( true ){
 
-                    for(int k = 1; k < N+1; k++){
-                        sb.append(str[k]).append(" ");
-                    }
+                    int start = number - cnt;
+                    int end = number+ cnt;
 
-                    System.out.println(sb);
+                    if(start < 1 || end > N) break;
 
-
-                    start = j[1] - cnt;
-                    end = j[1]+ cnt;
-                    System.out.println("Start  " +start);
-                    System.out.println("end  " + end);
-                    str[j[1]] ^= 1;
                     if(str[start] == str[end]){
                         str[start] ^= 1;
                         str[end] ^= 1;
                         cnt ++;
                     }
-                    else{
-                        str[j[1]] ^= 1;
+                    else {
+                        str[number] ^= 1;
                         break;
                     }
-
-
                 }
-
             }
 
 
         }
 
 
+        for(int k = 1; k <= N; k++){
+            sb.append(str[k]).append(" ");
+            if ( k % 20 == 0 ){
+                sb.append("\n");
+            }
+        }
+
+        System.out.println(sb);
 
 
     }
 }
-/// 입출력까지 구현함
